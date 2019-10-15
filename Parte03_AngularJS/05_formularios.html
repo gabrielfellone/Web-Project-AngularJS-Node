@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="appAngular">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Document</title>
+</head>
+
+<body ng-controller="Principal as ctl">
+    <div class="container">
+
+        <h2>Formularios - parte 01</h2>
+        <form ng-submit="ctl.submit1()">
+            <input type="text" ng-model="ctl.nome" placeholder="Nome" /><br/>
+            <input type="text" ng-model="ctl.curso" placeholder="Curso" /><br/>
+
+            <input type="submit" value="Submit 1" />
+        </form>
+        <hr/>
+
+        <h2>Formularios - parte 02</h2>
+        <form ng-submit="ctl.submit2()">
+            <input type="text" ng-model="ctl.aluno.nome" placeholder="Nome" /><br/>
+            <input type="text" ng-model="ctl.aluno.curso" placeholder="Curso" /><br/>
+
+            <input type="submit" value="Submit 2" />
+        </form>
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script>
+        angular.module('appAngular', [])
+            .controller('Principal',[function(){
+                let self = this;
+
+                self.submit1 = function(){
+                    var aluno = {
+                        nome: self.nome,
+                        curso: self.curso
+                    };
+                    var resposta = "Dados do Formulario 01: \n" +
+                        "Nome: " + aluno.nome + 
+                        "\nCurso" + aluno.curso;
+                    alert(resposta);
+                };
+
+                self.submit2 = function(){
+
+                    var resposta = "Dados do Formulario 01: \n" +
+                        "Nome: " + self.aluno.nome + 
+                        "\nCurso" + self.aluno.curso;
+                    alert(resposta);
+                };
+
+            }]);
+    </script>
+</body>
+
+</html>

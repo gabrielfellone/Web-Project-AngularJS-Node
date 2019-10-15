@@ -1,0 +1,17 @@
+[
+    {
+        "id": 10,
+        "descricao": "telefone",
+        "preco": 1500
+    },
+    {
+        "id": 20,
+        "descricao": "mesa",
+        "preco": 440
+    },    
+    {
+        "id": 30,
+        "descricao": "barraca",
+        "preco": 4500
+    }  
+]

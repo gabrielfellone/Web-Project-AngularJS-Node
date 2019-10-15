@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Eventos e Convidados</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <header>
+        <p>Bem-vindo, <%= usuario.nome %>
+        </p>
+        <h1>Compra de Eventos</h1>
+        <h4>Preencha os dados com seu cartão</h4>
+    </header>
+
+    <section>
+        <form action="/novoPagamento" method="post">
+            Evento: <br />
+            <input type="text" name="cartao[evento]" value="<%= evento %>"><br /> 
+            Preço: <br />
+            <input type="text" name="cartao[preco]" value="<%= preco %>"> <br /> 
+            Num. Cartão: <br />
+            <input type="text" name="cartao[numcartao]"> <br />
+            CVV: <br />
+            <input type="text" name="cartao[cvv]"> <br />
+
+            <button type="submit">Efetuar Pagamento</button>
+        </form>
+    </section>
+
+    <section>
+        <a href='/menu'>Voltar para o Menu</a>
+    </section>
+    <footer>
+        <small>Sistema de Cadastro de Eventos e Convidados</small>
+    </footer>
+</body>
+
+</html>

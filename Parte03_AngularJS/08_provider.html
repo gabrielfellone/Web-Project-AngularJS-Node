@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="appAngular">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Document</title>
+</head>
+
+<body ng-controller="Principal">
+    <div class="container">
+        <h2>Usando service e factory</h2>
+
+        <div>
+            <span>Fornecer um número inteiro:</span>
+            <input type="number" ng-model="valor"/>
+            <button ng-click="calcularQuadrado()">
+                X<sup>2</sup>
+            </button>
+            <br/>
+            <h4>Resultado: {{resultado}}</h4>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script>
+        var appAngular = angular.module('appAngular', []);
+
+        appAngular.factory('MathFactory', function(){
+            
+            var factory = {};
+            factory.multiplicar = function(a, b){
+                return a * b;
+            }
+            return factory;
+        });
+
+        appAngular.service('MathService', function(MathFactory){
+            this.calcularQuadrado = function(a){
+                return MathFactory.multiplicar(a, a);
+            }
+        });
+        
+        appAngular.controller('Principal',function($scope, MathService){
+            $scope.calcularQuadrado = function(){
+                $scope.resultado = MathService
+                    .calcularQuadrado($scope.valor);
+            };
+
+        });
+    </script>
+</body>
+
+</html>
